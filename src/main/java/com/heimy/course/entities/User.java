@@ -1,11 +1,14 @@
 package com.heimy.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serial;
-import java.io.Serializable;;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+;
 
 @Entity
 @Table(name = "tb_user")
@@ -22,6 +25,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
